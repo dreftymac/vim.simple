@@ -5,7 +5,7 @@
 ""   - date: created="Sun Jun 15 12:53:11 2014"
 ""     last: lastmod="Sun Jun 15 12:59:31 2014"
 ""     desc: |
-""         vim.mapping.sample1.txt
+""         vim.mapping.sample1
 ""         
 ""         sample mapping for use with vim
 ""         
