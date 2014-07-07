@@ -47,15 +47,16 @@ iabb rrweblink - caption: weblink .. __caption__<CR>  date: <C-R>=strftime("%Y-%
 "" ------------------------------------------------------------------------
 """ region.005.declare.command.abbrevs: | 
 
-cabb waso wa \| source %
-    "" write all files and source the current file
-
-cabb mosf s=\\=/=g  \| echo('mosf: modify text slash to forwardslash')
-    "" change all slashes on the current line to forwardslash
+cabb insdate r !date \| echo('insdate: insert date'):wa
 
 cabb mosb s=/=\\=g  \| echo('mosb: modify text ;; slash to backslash')
     "" change all slashes on the current line to backslash 
 
+cabb mosf s=\\=/=g  \| echo('mosf: modify text slash to forwardslash')
+    "" change all slashes on the current line to forwardslash
+
 cabb mosd s=[/\\]=.=g  \| echo('mosd: modify text ;;  slash to dot')
     "" change all slashes on the current line to dot 
 
+cabb waso wa \| source %
+    "" write all files and source the current file
