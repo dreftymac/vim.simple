@@ -27,5 +27,6 @@
 nnoremap gf <C-w>gf
 
 "" set current directory to that of active buffer
+"" https://duckduckgo.com/?q=vim+current+directory+active+buffer
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
