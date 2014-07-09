@@ -15,6 +15,11 @@
 """            
 "" @endverbatim
 
+"" TODO: addons
+"" https://duckduckgo.com/?q=vim+get+rid+of+caret-m
+"" exec "silent! %s/".nr2char(0x0d)."//g"
+""
+
 "" ------------------------------------------------------------------------
 """ region.001.init: |
 
