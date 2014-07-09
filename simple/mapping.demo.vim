@@ -26,3 +26,6 @@
 "" make gf open in new window by default
 nnoremap gf <C-w>gf
 
+"" set current directory to that of active buffer
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
