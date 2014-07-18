@@ -1,4 +1,4 @@
-## Segmented Vim configuration elements
+## Segmented vim configuration elements
 
 These vim configuration elements are segmented by primary function.
 
