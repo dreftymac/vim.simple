@@ -14,4 +14,4 @@ This project is intended to host very minimal one-off tests for inclusion into a
 
 - [ ] segment configuration into 'islands' that the user can pick and choose for inclusion into vim.
 - [ ] pull out configuration settings from old vimrc and organize into vim.simple
-- [ ] blank
+- [ ] dynamic yaml fitb generation mode
