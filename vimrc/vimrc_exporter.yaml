@@ -1,0 +1,5 @@
+## vimrc settings file encoded as yaml
+
+global_initialize_vim: |
+  set nocompatible       "" turn off vi compatibility
+  set shellcmdflag=-lic  "" allow use of bash aliases with vim :read !{cmd} (see :help read )
