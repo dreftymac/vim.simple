@@ -1,0 +1,328 @@
+## vimrc settings file ;; encoded as yaml
+main:
+  
+- caption:  fileinfo_metadata
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " main:
+    "   - date: created="Tue Sep 04 15:36:52 2012"
+    "     last: lastmod="Tue Sep 04 15:36:52 2012"
+    "     desc: |
+    "         .vimrc
+    "         vimrc file from dreftymac.org
+    
+- caption:  fileinfo_metadata_windows_csm
+  scope:    windows_specific_csm
+  tags:     __blank__
+  heading:  
+  body: |
+    " see_also:
+    "   /cygdrive/c/sm/docs/appdata/home/smosley/.vimrc
+    "   c:/sm/docs/appdata/home/smosley/.vimrc
+    "   c:/sm/docs/appdata/v/vim/vim72/vim_home/vimrc_csm.vim find="CSM_windows_includes"
+    
+- caption:  global_initialize_vim
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    set nocompatible       "" turn off vi compatibility
+    set shellcmdflag=-lic  "" allow use of bash aliases with vim :read !{cmd} (see :help read )
+
+- caption:  global_preferences_annoyance_busters
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " errorbells: 
+    "set noerrorbells
+    "set t_vb=
+    "set visualbell
+    set noerrorbells visualbell t_vb=
+    if has('autocmd')
+      autocmd GUIEnter * set visualbell t_vb=
+    endif
+    
+    " ********************
+    " escape key replacement
+    " see also: global_preferences_keyboard
+    "" jk doubles as escape key
+    "" see http://vim.wikia.com/wiki/Avoid_the_escape_key
+    :map! jk <ESC>l  
+  
+- caption:  global_preferences_editor_appearance
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " basic editor settings
+    set history=5000  " lines of command line history
+    set ruler	        " show the cursor position all the time
+    set showcmd	      " display incomplete commands
+    set showmode      " show current mode
+    set shortmess=at  " short messages
+    set showmatch     " show matching brace
+    set incsearch     " do incremental searching
+    set number        " line numbering
+    
+    " ********************
+    " cursor appearance
+    if(111) "for cygwin mintty cursor appearance
+       let &t_ti.="\e[1 q"
+       let &t_SI.="\e[5 q"
+       let &t_EI.="\e[1 q"
+       let &t_te.="\e[0 q"
+    endif
+    highlight Cursor guifg=white guibg=black
+    highlight iCursor guifg=white guibg=steelblue
+    set guicursor=n-v-c:block-Cursor
+    set guicursor+=i:ver100-iCursor
+    set guicursor+=n-v-c:blinkon0
+    set guicursor+=i:blinkwait10
+    
+    " ********************
+    " font    
+    " set default font (platform_sensitive)    
+    if has("unix")
+        set gfn=Lucidatypewriter\ 12
+    endif
+    if has("win32")
+        set gfn=Courier_New:h12:cANSI
+    endif
+    
+    " ********************
+    " buffers
+    " suppress the NoFile buffer
+    set nobuflisted
+    setlocal noswapfile
+        "set buftype=nofile
+        "set bufhidden=hide
+        
+    " ********************
+    " syntax coloring
+    " Switch syntax highlighting on, when the terminal has colors
+    " Also switch on highlighting the last used search pattern.
+    if &t_Co > 2 || has("gui_running")
+      syntax on
+      set hlsearch
+    endif
+    
+    " ********************
+    " color scheme
+    ""  Default Color Scheme
+    ""  Frequently Used colorscheme
+    ""      desert  golden  midnight2   neon biogoo2
+    ""      murphy  sea zenburn simpleandfriendly2
+    ""      potts textpad emacs molokai vibrantink002
+    let bTemp     = 0
+    let sTemp01   = "molokai"
+    let sTemp02   = "solarized"
+    let sTemp03   = "desert"
+    let sTemp     = sTemp03
+    
+    if(bTemp == 0)
+        :try
+        :   exec "colorscheme ".sTemp
+        :   let bTemp = 1
+        :catch
+        :endtry
+    endif
+    
+    ""  p__: Bracket match coloring
+    :hi MatchParen ctermbg=blue guibg=NONE gui=bold    
+
+- caption:  global_preferences_search_and_replace
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " search
+    set nohlsearch      " no highlight search
+    set incsearch       " highlight search tag while typing
+    set ignorecase      " ignore the case in search patterns
+    set smartcase       " consider case only if the srch pattern contains uppercase chars
+
+- caption:  global_preferences_editing
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " text formatting and layout
+    set fo=tcqn         " see :h fo-table
+    set encoding=utf-8  " see :h Unicode
+    
+    " ********************
+    ""  p__: non-printing chars
+        ""  specify display of 'invisible' nonprinting characters
+        ""  to show/hide non printing chars, use the commands (:set list) and (:set nolist)
+        "set list listchars=tab:»·,trail:·
+    set listchars=trail:·,extends:>,eol:¶
+
+- caption:  global_preferences_keyboard
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " backspace key
+    " allow backspacing over everything in insert mode
+    " see also global_preferences_annoyance_busters  
+    set backspace=indent,eol,start
+    
+    " ********************
+    " cursor wrapping
+    " wrapping behavior of cursor
+    set whichwrap=<,>,h,l,[,]  
+  
+- caption:  global_preferences_files
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " backup
+    if has("vms")
+      set nobackup		" do not keep a backup file, use versions instead
+    else
+      set backup		  " keep a backup file, but put it in home directory
+      set backupdir=$HOME/.backup
+      set nowritebackup
+      "set noswapfile
+    endif
+    
+    " ********************
+    " diffs
+    " Convenient command to see the difference between the current buffer and the
+    " file it was loaded from, thus the changes you made.
+    " Only define it when not defined already.
+    if !exists(":DiffOrig")
+      command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+          \ | wincmd p | diffthis
+    endif
+  
+- caption:  global_preferences_misc
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |  
+    " When started as "evim", evim.vim will already have done these settings.
+    if v:progname =~? "evim"
+      finish
+    endif
+    
+    " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+    " let &guioptions = substitute(&guioptions, "t", "", "g")
+    
+    " Don't use Ex mode, use Q for formatting
+    map Q gq
+    
+    " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+    " so that you can undo CTRL-U after inserting a line break.
+    inoremap <C-U> <C-G>u<C-U>
+    
+    " In many terminal emulators the mouse works just fine, thus enable it.
+    if has('mouse')
+      set mouse=a
+    endif
+    
+- caption:  global_preferences_vim_autocommands
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************
+    " Only do this part when compiled with support for autocommands.
+    if has("autocmd")
+    
+      " ********************
+      " Enable file type detection.
+      " Use the default filetype settings, so that mail gets 'tw' set to 72,
+      " 'cindent' is on in C files, etc.
+      " Also load indent files, to automatically do language-dependent indenting.
+      filetype plugin indent on
+    
+      " ********************
+      " Put these in an autocmd group, so that we can delete them easily.
+      augroup vimrcEx
+      au!
+    
+      " ********************
+      " For all text files set 'textwidth' to 78 characters.
+      autocmd FileType text setlocal textwidth=78
+    
+      " ********************
+      " When editing a file, always jump to the last known cursor position.
+      " Don't do it when the position is invalid or when inside an event handler
+      " (happens when dropping a file on gvim).
+      " Also don't do it when the mark is in the first line, that is the default
+      " position when opening a file.
+      autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+    
+      augroup END
+    
+    else    
+      set autoindent		" always set autoindenting on
+    endif " has("autocmd")
+
+- caption:  global_preferences_gui
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |
+    " ********************  
+    " GUI specific options
+    if has("gui")
+      ""  p__: scrollbars and menu
+      set guioptions+=mrb
+        
+      ""  p__: window position and size 
+      :winpos 13 11
+      :winsize 100 40
+    endif
+
+- caption:  windows_legacy
+  scope:    windows_specific_csm
+  tags:     __blank__
+  heading:  h1
+  desc: |
+    this needs to be refactored. Take out the windows-specific csm drive stuff and
+    put it into the main vimrc sections.
+  body: |  
+    " ********************
+    " windows_specific_csm    
+      if has("win32")
+        let sTemp01  =  ""
+        let stemp02  =  "c:/programs/vim"
+        let sTemp03  =  "c:/sm/docs/appdata/v/vim/vim72/vim_home/vimrc_csm.vim"
+        let sTemp04  =  "c:/sm/docs/appdata/v/vim/vimwin73/vim_home/vimrc_csm.vim"
+      
+        let sTemp    = sTemp03
+        if(filereadable(sTemp))
+            exec "source ".sTemp
+    
+            "" annoyance bust workaround ;; turn guicursor back to the vim factory default
+            :set guicursor&
+            finish
+        endif
+      endif
+      
+- caption:  __blank__
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |  
+
+- caption:  __blank__
+  scope:    global
+  tags:     __blank__
+  heading:  h1
+  body: |  
