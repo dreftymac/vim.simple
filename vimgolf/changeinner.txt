@@ -1,0 +1,6 @@
+alpha['onea'] = "alpha";
+alpha['twoa'] = "bravo";
+alpha['twob'] = "charlie";
+alpha['twoc'] = "delta";
+alpha['twod'] = "echo";
+

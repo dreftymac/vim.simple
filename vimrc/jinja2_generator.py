@@ -1,3 +1,17 @@
+## @file
+## @verbatim
+## main:
+##   - date: created="Wed Oct 22 19:22:35 2014"
+##     last: lastmod="Wed Oct 22 19:22:35 2014"
+##     desc: |
+##         jinja2_generator.py
+##         standalone generator for use with pycog-style standalone jinja2 templates
+##
+##     seealso: |
+##        https://github.com/dreftymac/private.lab/tree/master/mystuff/jinja2
+##
+## @endverbatim
+
 ##
 if(True):
   ##
