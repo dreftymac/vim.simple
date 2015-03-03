@@ -1,6 +1,6 @@
 ## vim.simple
 
-| Simple and lean demonstrations for use with vim.
+> Simple and lean demonstrations for use with vim.
 
 ### Editor preferences from other editors
 		
