@@ -1,6 +1,6 @@
 ## lookups
 
-* map-operator
+* :help :map-operator
 * 
 
 ## links
