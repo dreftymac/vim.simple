@@ -1,4 +1,4 @@
-# vim:essentials
+# vim essentials
 
 [Jacob Mattingley](http://www.stanford.edu/~jacobm/)
 
