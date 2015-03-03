@@ -65,3 +65,6 @@ cabb mosd s=[/\\]=.=g  \| echo('mosd: modify text ;;  slash to dot')
 
 cabb waso wa \| source %
     "" write all files and source the current file
+
+
+
