@@ -1,7 +1,6 @@
 ## lookups
 
 * :help :map-operator
-* 
 
 ## links
 * TUTORIALS TIPS AND TRICKS
