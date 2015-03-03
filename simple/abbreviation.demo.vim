@@ -25,7 +25,7 @@
 
 "" initialize abbreviations
 abclear
-    "" uncomment the previous line to undefine any and all preexisting abbreviations
+    "" if uncommented, the previous line will undefine any and all preexisting abbreviations
 
 "" ------------------------------------------------------------------------
 """ region.002a.declare.insert.abbrevs: | 
