@@ -14,7 +14,7 @@ Realizing the power of *operators and motions* is the single most important real
 
 Because Vim varies significantly from standard desktop-style text editors, (but most people are familiar with those types of editors) this repository assumes familiarity with the desktop-style editors as a baseline of comparison. 
 
-## Vim related
+## vim related
 
 ### Atom editor
 
